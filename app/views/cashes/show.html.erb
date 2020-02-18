@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @cash.value %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @cash.date %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @cash.type %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @cash.note %>
+</p>
+
+<%= link_to 'Edit', edit_cash_path(@cash) %> |
+<%= link_to 'Back', cashes_path %>

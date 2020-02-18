@@ -1,0 +1,37 @@
+<%= form_with(model: cash, local: true) do |form| %>
+  <% if cash.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(cash.errors.count, "error") %> prohibited this cash from being saved:</h2>
+
+      <ul>
+        <% cash.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :value %>
+    <%= form.text_field :value %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :type %>
+    <%= form.check_box :type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

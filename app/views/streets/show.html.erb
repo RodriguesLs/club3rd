@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>District:</strong>
+  <%= @street.district %>
+</p>
+
+<p>
+  <strong>Number:</strong>
+  <%= @street.number %>
+</p>
+
+<p>
+  <strong>Complement:</strong>
+  <%= @street.complement %>
+</p>
+
+<p>
+  <strong>Cep:</strong>
+  <%= @street.cep %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @street.state %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @street.customer_id %>
+</p>
+
+<%= link_to 'Edit', edit_street_path(@street) %> |
+<%= link_to 'Back', streets_path %>
