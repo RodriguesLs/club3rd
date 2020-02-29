@@ -18,7 +18,7 @@
       <tr>
         <td><%= cash.value %></td>
         <td><%= cash.date %></td>
-        <td><%= cash.type %></td>
+        <td><%= cash.kind %></td>
         <td><%= cash.note %></td>
         <td><%= link_to 'Show', cash %></td>
         <td><%= link_to 'Edit', edit_cash_path(cash) %></td>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Cash', new_cash_path %>
+<%= link_to 'Nova Despesa/ Receita', new_cash_path, class:'btn btn-dark btn-color-white' %>

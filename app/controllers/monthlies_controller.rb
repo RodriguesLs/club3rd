@@ -1,5 +1,5 @@
 class MonthliesController < ApplicationController
-  before_action :set_monthly, only: [:show, :edit, :update, :destroy]
+  before_action :set_monthly, only: %i[show edit update destroy]
 
   # GET /monthlies
   # GET /monthlies.json
@@ -9,8 +9,7 @@ class MonthliesController < ApplicationController
 
   # GET /monthlies/1
   # GET /monthlies/1.json
-  def show
-  end
+  def show; end
 
   # GET /monthlies/new
   def new
@@ -18,8 +17,7 @@ class MonthliesController < ApplicationController
   end
 
   # GET /monthlies/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /monthlies
   # POST /monthlies.json
@@ -61,14 +59,15 @@ class MonthliesController < ApplicationController
     end
   end
 
+  # Use callbacks to share common setup or constraints between actions.
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_monthly
-      @monthly = Monthly.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def monthly_params
-      params.require(:monthly).permit(:status, :price, :date, :customer_id)
-    end
+  def set_monthly
+    @monthly = Monthly.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def monthly_params
+    params.require(:monthly).permit(:status, :price, :date, :costumer_id)
+  end
 end

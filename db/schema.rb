@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_233611) do
+ActiveRecord::Schema.define(version: 2020_02_28_230224) do
+
+  create_table "addresses", force: :cascade do |t|
+    t.string "street"
+    t.string "district"
+    t.string "city"
+    t.string "number"
+    t.string "complement"
+    t.string "cep", limit: 9
+    t.string "state", limit: 2
+    t.integer "costumer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["costumer_id"], name: "index_addresses_on_costumer_id"
+  end
 
   create_table "cashes", force: :cascade do |t|
     t.float "value"
     t.date "date"
-    t.boolean "type"
+    t.string "kind"
     t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -37,10 +51,10 @@ ActiveRecord::Schema.define(version: 2020_02_17_233611) do
     t.string "status"
     t.string "price"
     t.date "date"
-    t.integer "customer_id", null: false
+    t.integer "costumer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id"], name: "index_monthlies_on_customer_id"
+    t.index ["costumer_id"], name: "index_monthlies_on_costumer_id"
   end
 
   create_table "streets", force: :cascade do |t|
@@ -55,6 +69,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_233611) do
     t.index ["customer_id"], name: "index_streets_on_customer_id"
   end
 
-  add_foreign_key "monthlies", "customers"
+  add_foreign_key "addresses", "costumers"
+  add_foreign_key "monthlies", "costumers"
   add_foreign_key "streets", "customers"
 end

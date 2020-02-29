@@ -10,28 +10,33 @@
       </ul>
     </div>
   <% end %>
+  <div class='form-center'>
+      <div class="form-group row">
+        <%= form.label :value, class:'col-sm-3 col-form-label' %>
+        <%= form.text_field :value, class:'form-control col-md-8' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :value %>
-    <%= form.text_field :value %>
-  </div>
-
-  <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :type %>
-    <%= form.check_box :type %>
-  </div>
-
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_area :note %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+      <div class="form-group row">
+        <%= form.label :date, class:'col-sm-3 col-form-label' %>
+        <%= form.date_select :date %>
+      </div>  
+    <div class='row'>
+      <div class='form-group col-md-6'>
+        <%= form.label :kind, 'Receita' %>
+        <%= form.radio_button :kind, 'receita' %>
+      </div>
+      <div class='form-group col-md-6'>
+        <%= form.label :kind, 'Despesa' %>
+        <%= form.radio_button :kind, 'despesa' %>
+      </div>
+    </div>
+    <div class="form-group row">
+        <%= form.label :note, class:'col-sm-3 col-form-label' %>
+        <%= form.text_area :note, class:'form-control col-md-8' %>
+    </div>
+    <div class="actions">
+      <%= form.submit class:'btn btn-dark btn-color-white' %>
+      <%= link_to 'Back', cashes_path, class:'btn btn-danger btn-color-white' %>
+    </div>
   </div>
 <% end %>

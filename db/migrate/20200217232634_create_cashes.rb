@@ -3,7 +3,7 @@ class CreateCashes < ActiveRecord::Migration[6.0]
     create_table :cashes do |t|
       t.float :value
       t.date :date
-      t.boolean :type
+      t.string :kind
       t.text :note
 
       t.timestamps

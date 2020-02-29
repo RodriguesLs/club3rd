@@ -15,10 +15,14 @@ class CostumersController < ApplicationController
   # GET /costumers/new
   def new
     @costumer = Costumer.new
+    @costumer.build_address
+    @states = [ 'AC', 'AL', 'AP', 'AM', 'BA', 'CE', 'DF', 'ES', 'GO', 'MA', 'MT', 'MS', 'MG', 'PA', 
+                'PB', 'PR', 'PE', 'PI', 'RJ', 'RN', 'RS', 'RO', 'RR', 'SC', 'SP', 'SE', 'TO' ]
   end
 
   # GET /costumers/1/edit
   def edit
+    # @states = @costumer.address.state
   end
 
   # POST /costumers
@@ -65,10 +69,21 @@ class CostumersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_costumer
       @costumer = Costumer.find(params[:id])
+      @states = @costumer.address.state
     end
 
     # Only allow a list of trusted parameters through.
     def costumer_params
-      params.require(:costumer).permit(:name, :status, :rg, :cpf, :phone, :mobile_phone, :date_of_birth)
+      params.require(:costumer).permit(:name, :status, :rg, :cpf, :phone, 
+                                       :mobile_phone, :date_of_birth,
+                                        address_attributes: [
+                                          :street,
+                                          :district,
+                                          :city,
+                                          :number,
+                                          :complement,
+                                          :cep,
+                                          :state
+                                       ])
     end
 end
