@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+gem 'bootstrap-datepicker-rails'
+gem 'jquery-rails'
+gem 'materialize-sass', '~> 1.0.0'
+
 gem 'devise'
 gem 'devise-i18n'
 gem 'foreman'

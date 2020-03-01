@@ -10,35 +10,20 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require bootstrap
+ *= require bootstrap-datepicker
  *= require_tree .
  *= require_self
  */
 
+ @import "materialize";
+ @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 
-.btn-color-white {
-  color: #FFF;
-}
 
-.btn-color-white:visited {
-  color: #FFF; 
-}
-
-.form-center {
-  /* border: 1px solid red; */
-  /* width: 25%; */
-  text-align: center;
-  padding: 10px;
-}
-
-.h1-center {
-  margin: .5em 0;
-  text-align: center;
-}
-
-.form-cash {
+.login {
   width: 30%;
-  margin: 10px auto;
-  border: 1px solid aqua;
-  border-radius: 5px;
+  margin: 5em auto;
+}
+
+.remember-field {
+  margin-bottom: 15px;
 }

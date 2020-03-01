@@ -83,7 +83,8 @@ class CostumersController < ApplicationController
                                           :number,
                                           :complement,
                                           :cep,
-                                          :state
+                                          :state,
+                                          :_destroy
                                        ])
     end
 end
