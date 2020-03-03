@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   get 'home/index'
   resources :monthlies
-  resources :streets
   resources :costumers
   resources :cashes
 
