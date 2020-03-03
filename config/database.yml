@@ -21,5 +21,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  user: vmgccbjysomxck
+  password: b893db484e16a6129d3c293a8dca7aa8e8eb0d0d74208bbe2c613129450b8b95
