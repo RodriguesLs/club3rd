@@ -1,4 +1,5 @@
 class MonthliesController < ApplicationController
+  layout 'default'
   before_action :set_monthly, only: %i[show edit update destroy]
 
   # GET /monthlies

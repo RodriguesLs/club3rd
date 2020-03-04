@@ -1,4 +1,6 @@
 class CashesController < ApplicationController
+  layout 'default'
+  
   before_action :set_cash, only: [:show, :edit, :update, :destroy]
 
   # GET /cashes

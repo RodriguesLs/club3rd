@@ -1,4 +1,5 @@
 class CostumersController < ApplicationController
+  layout 'default'
   before_action :set_costumer, only: [:show, :edit, :update, :destroy]
 
   # GET /costumers
