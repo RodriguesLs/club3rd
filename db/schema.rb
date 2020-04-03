@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_204828) do
+ActiveRecord::Schema.define(version: 2020_04_03_005804) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 2020_03_01_204828) do
     t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0
+    t.boolean "status"
   end
 
   create_table "costumers", force: :cascade do |t|
@@ -57,18 +59,6 @@ ActiveRecord::Schema.define(version: 2020_03_01_204828) do
     t.index ["costumer_id"], name: "index_monthlies_on_costumer_id"
   end
 
-  create_table "streets", force: :cascade do |t|
-    t.string "district"
-    t.string "number"
-    t.string "complement"
-    t.string "cep"
-    t.string "state"
-    t.integer "customer_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["customer_id"], name: "index_streets_on_customer_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -83,5 +73,4 @@ ActiveRecord::Schema.define(version: 2020_03_01_204828) do
 
   add_foreign_key "addresses", "costumers"
   add_foreign_key "monthlies", "costumers"
-  add_foreign_key "streets", "customers"
 end

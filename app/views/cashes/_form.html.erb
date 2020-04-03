@@ -12,12 +12,12 @@
   <% end %>
   <div class='row'>
       <div class='col s4'>
-        <%= form.label :value %>
-        <%= form.text_field :value %>
+        <%= form.label :price, "Valor" %>
+        <%= form.text_field :price %>
       </div>
 
       <div class='col s4'>
-        <%= form.label :date %>
+        <%= form.label :date, 'Data' %>
         <%= form.text_field :date %>
       </div>  
       <div class='col s4'>
@@ -32,9 +32,9 @@
       </div>
     </div>
     <div class='row'>
-      <%= form.label :note %>
+      <%= form.label :note, 'Observação' %>
       <%= form.text_area :note, class:'materialize-textarea' %>
     </div>
-    <%= form.submit class: 'btn' %>
-    <%= link_to 'Back', cashes_path, class:'btn' %>
+    <%= form.submit('Registrar', class: 'btn') %>
+    <%= link_to 'Voltar', cashes_path, class:'btn' %>
 <% end %>

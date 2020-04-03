@@ -1,36 +1,40 @@
 class CashesController < ApplicationController
   layout 'default'
   
-  before_action :set_cash, only: [:show, :edit, :update, :destroy]
+  before_action :set_cash, only: [:show, :edit, :update, :destroy, :undo]
 
   # GET /cashes
   # GET /cashes.json
   def index
-    @cashes = Cash.all
+    @cashes = Cash.where("status = ?", false)
   end
 
   # GET /cashes/1
   # GET /cashes/1.json
-  def show
-  end
+  def show; end
 
   # GET /cashes/new
   def new
     @cash = Cash.new
   end
 
-  # GET /cashes/1/edit
-  def edit
+  def undo
+    @cash.status = true
+    @cash.save
+    redirect_to cashes_path, notice: 'Operação desfeita com sucesso.'
   end
+
+  # GET /cashes/1/edit
+  def edit; end
 
   # POST /cashes
   # POST /cashes.json
   def create
     @cash = Cash.new(cash_params)
-
+    @cash.status = false
     respond_to do |format|
       if @cash.save
-        format.html { redirect_to @cash, notice: 'Cash was successfully created.' }
+        format.html { redirect_to cashes_path, notice: 'Registro efetuado com sucesso.' }
         format.json { render :show, status: :created, location: @cash }
       else
         format.html { render :new }
@@ -71,6 +75,6 @@ class CashesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def cash_params
-      params.require(:cash).permit(:value, :date, :kind, :note)
+      params.require(:cash).permit(:price, :date, :kind, :note)
     end
 end
