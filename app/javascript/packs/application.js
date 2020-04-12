@@ -10,7 +10,7 @@ require("channels")
 require("jquery")
 
 import flatpickr from 'flatpickr'
-// require("flatpickr/dist/flatpickr.css")
+require("flatpickr/dist/flatpickr.css")
 
 const Port = require("flatpickr/dist/l10n/pt.js").default.pt;
 flatpickr.localize(Port);
