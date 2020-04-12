@@ -7,6 +7,10 @@ class CashesController < ApplicationController
   # GET /cashes.json
   def index
     @cashes = Cash.where("status = ?", false)
+    @totalization = 0
+    @cashes.each do |c| 
+      @totalization += c.price
+    end
   end
 
   # GET /cashes/1
