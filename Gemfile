@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+gem 'flatpickr'
 gem 'simple_form'
 gem 'rails-i18n'
 gem 'money-rails', '~>1.12'
