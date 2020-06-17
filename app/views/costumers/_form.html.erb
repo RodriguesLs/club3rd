@@ -28,15 +28,15 @@
 
   <div class='row'>
     <div class='col s3'>
-      <%= form.label :phone %>
+      <%= form.label 'Telefone' %>
       <%= form.text_field :phone, placeholder:'(99) 9998-9999' %>
     </div>
     <div class='col s3'>
-      <%= form.label :mobile_phone %>
+      <%= form.label 'Celular' %>
       <%= form.text_field :mobile_phone, class:'form-control', placeholder:'(99) 98888-8888' %>
     </div>
     <div class='col s3'>
-      <%= form.label :date_of_birth %>
+      <%= form.label 'Nascimento' %>
       <%= form.text_field :date_of_birth, class:'datepicker' %>
     </div>
     <div class='col s3'>
@@ -47,10 +47,7 @@
     </div>
   </div>
   
-  
-  
   <%= form.fields_for :address do |ad| %>
-      
     <div class='row'>
       <div class='col s6'>
         <%= ad.label :street, 'Rua' %>
@@ -75,7 +72,7 @@
         <%= ad.text_field :city %>
       </div>
       <div class='col s3'>
-        <%= ad.label :state %>
+        <%= ad.label :state, 'Estado' %>
         <%= ad.text_field :state %>
       </div>
       <div class='col s3'>
