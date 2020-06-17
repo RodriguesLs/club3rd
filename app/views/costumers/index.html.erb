@@ -20,15 +20,15 @@
     <% @costumers.each do |costumer| %>
       <tr>
         <td><%= costumer.name %></td>
-        <td><%= costumer.status %></td>
-        <td><%= costumer.rg %></td>
-        <td><%= costumer.cpf %></td>
-        <td><%= costumer.phone %></td>
-        <td><%= costumer.mobile_phone %></td>
-        <td><%= costumer.date_of_birth %></td>
-        <td><%= link_to 'Show', costumer %></td>
+        <td><%= I18n.t costumer.status %></td>
+        <td><%= rg_format(costumer.rg) %></td>
+        <td><%= cpf_format(costumer.cpf) %></td>
+        <td><%= phone_format(costumer.phone) %></td>
+        <td><%= phone_format(costumer.mobile_phone) %></td>
+        <td><%= I18n.l costumer.date_of_birth, format: :long %></td>
         <td><%= link_to 'Edit', edit_costumer_path(costumer) %></td>
-        <td><%= link_to 'Destroy', costumer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <td><%#= link_to 'Show', costumer %></td>
+        <td><%#= link_to 'Destroy', costumer, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>

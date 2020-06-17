@@ -1,5 +1,7 @@
 ---
   "pt-BR":
+    true: 'Ativo'
+    false: 'Inativo'
     activerecord:
       errors:
         models:
